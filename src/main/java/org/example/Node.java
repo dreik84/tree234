@@ -35,7 +35,7 @@ public class Node {
         return numItems;
     }
 
-    public DataItem getItems(int index) {
+    public DataItem getItem(int index) {
         return itemArray[index];
     }
 
