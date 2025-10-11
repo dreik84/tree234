@@ -18,4 +18,28 @@ public class Node {
         childArray[childNum] = null;
         return tempNode;
     }
+
+    public Node getChild(int childNum) {
+        return childArray[childNum];
+    }
+
+    public Node getParent() {
+        return parent;
+    }
+
+    public boolean isLeaf() {
+        return childArray[0] == null;
+    }
+
+    public int getNumItems() {
+        return numItems;
+    }
+
+    public DataItem getItems(int index) {
+        return itemArray[index];
+    }
+
+    public boolean isFull() {
+        return numItems == ORDER - 1;
+    }
 }
