@@ -34,5 +34,4 @@ class DataItemTest {
 
         System.setOut(standardOut);
     }
-
 }
