@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class NodeTest {
 
     @Test
-    void connectChild() {
+    void testChildParentLogic() {
         Node parent = new Node();
         Node child = new Node();
         int childNum = 0;
@@ -16,22 +16,24 @@ class NodeTest {
 
         assertEquals(parent.getChild(childNum), child);
         assertEquals(child.getParent(), parent);
+
+        child = parent.disconnectChild(childNum);
+
+        assertNull(parent.getChild(childNum));
+        assertNotNull(child.getParent());  // TODO
     }
 
     @Test
-    void disconnectChild() {
-    }
+    void testIsLeaf() {
+        Node parent = new Node();
+        Node child = new Node();
+        int childNum = 0;
 
-    @Test
-    void getChild() {
-    }
+        assertTrue(parent.isLeaf());
 
-    @Test
-    void getParent() {
-    }
+        parent.connectChild(childNum, child);
 
-    @Test
-    void isLeaf() {
+        assertFalse(parent.isLeaf());
     }
 
     @Test
