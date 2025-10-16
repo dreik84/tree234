@@ -2,6 +2,9 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class NodeTest {
@@ -37,30 +40,57 @@ class NodeTest {
     }
 
     @Test
-    void getNumItems() {
-    }
+    void testItemLogic() {
+        Node node = new Node();
+        DataItem item = new DataItem(5);
+        int itemIndex = 0;
+        node.insertItem(item);
 
-    @Test
-    void getItem() {
+        assertEquals(1, node.getNumItems());
+        assertEquals(item, node.getItem(itemIndex));
+
+        node.removeItem();
+
+        assertEquals(0, node.getNumItems());
+
     }
 
     @Test
     void isFull() {
-    }
+        Node node = new Node();
+        DataItem item1 = new DataItem(1);
+        DataItem item2 = new DataItem(2);
+        DataItem item3 = new DataItem(3);
 
-    @Test
-    void findItem() {
-    }
+        assertFalse(node.isFull());
 
-    @Test
-    void insertItem() {
-    }
+        node.insertItem(item1);
+        node.insertItem(item2);
+        node.insertItem(item3);
 
-    @Test
-    void removeItem() {
+        assertTrue(node.isFull());
     }
 
     @Test
     void displayNode() {
+        Node node = new Node();
+        DataItem item1 = new DataItem(1);
+        DataItem item2 = new DataItem(2);
+        DataItem item3 = new DataItem(3);
+        node.insertItem(item1);
+        node.insertItem(item2);
+        node.insertItem(item3);
+
+        PrintStream standardOut = System.out;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        node.displayNode();
+
+        String expected = "/1/2/3/";
+        String actual = outputStream.toString().trim();
+
+        assertEquals(expected, actual);
+
+        System.setOut(standardOut);
     }
 }
