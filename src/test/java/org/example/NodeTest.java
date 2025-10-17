@@ -56,7 +56,7 @@ class NodeTest {
     }
 
     @Test
-    void isFull() {
+    void testIsFull() {
         Node node = new Node();
         DataItem item1 = new DataItem(1);
         DataItem item2 = new DataItem(2);
@@ -72,7 +72,7 @@ class NodeTest {
     }
 
     @Test
-    void displayNode() {
+    void testDisplayNode() {
         Node node = new Node();
         DataItem item1 = new DataItem(1);
         DataItem item2 = new DataItem(2);
