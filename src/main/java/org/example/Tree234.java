@@ -15,6 +15,16 @@ public class Tree234 {
         }
     }
 
+    public long findMin() {
+        Node curNode = root;
+
+        while (!curNode.isLeaf()) {
+            curNode = curNode.getChild(0);
+        }
+
+        return curNode.getItem(0).dData;
+    }
+
     public void insert(long dValue) {
         Node curNode = root;
         DataItem tempItem = new DataItem(dValue);
