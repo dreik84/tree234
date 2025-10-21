@@ -44,4 +44,16 @@ class Tree234Test {
 
         System.setOut(standardOutput);
     }
+
+    @Test
+    void testFindMin() {
+        Tree234 tree234 = new Tree234();
+        tree234.insert(30);
+        tree234.insert(20);
+        tree234.insert(10);
+        tree234.insert(40);
+        tree234.insert(50);
+
+        assertEquals(10, tree234.findMin());
+    }
 }
